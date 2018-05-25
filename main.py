@@ -1,10 +1,14 @@
 import cbthelper as cbt
 from selenium import webdriver
+import sys
 
 def main():
     # set username and auth key for api requests
     username = ''
     authkey = ''
+    if username == '' or authkey == '':
+        print("Don't forget to set username and authkey in main.py")
+        sys.exit(1)
     cbt.login(username, authkey)
     # build caps using best match of what customer wants
     # does not require exact platform or browser name
