@@ -43,7 +43,7 @@ class AutomatedTest:
                 img = snaps[i].info['description'] + '.png'
             else:
                 img = prefix + str(i) + '.png'
-            snaps[i].saveSnapshot(os.path.join(directory, img))
+            snaps[i].saveLocally(os.path.join(directory, img))
     def startRecordingVideo(self, description=''):
         hash = requests.post(G.api + self.testId + '/videos', auth=(G.username, G.authkey)).json()['hash']
         snap = Video(hash, self)
@@ -64,7 +64,7 @@ class AutomatedTest:
                 vid = videos[i].info['description'] + '.mp4'
             else:
                 vid = prefix + str(i) + '.mp4'
-            videos[i].saveVideo(os.path.join(directory, vid))
+            videos[i].saveLocally(os.path.join(directory, vid))
     def __makeDirectory(self, dir):
         if not os.path.exists(dir):
             os.mkdir(dir)

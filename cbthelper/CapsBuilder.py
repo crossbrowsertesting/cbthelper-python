@@ -13,6 +13,8 @@ class CapsBuilder:
         self.height = None
         self.name = None
         self.version = None
+        self.recordVideo = None
+        self.recordNetwork = None
     def withPlatform(self, platform):
         self.platform = platform
         return self
@@ -29,6 +31,12 @@ class CapsBuilder:
     def withBuild(self, build):
         # cant be build because of method below
         self.version = build
+        return self
+    def withRecordVideo(self, bool):
+        self.recordVideo = bool
+        return self
+    def withRecordNetwork(self, bool):
+        self.recordNetwork = bool
         return self
     def build(self):
         return self.__choose()
@@ -88,4 +96,8 @@ class CapsBuilder:
             caps['name'] = self.name
         if self.version:
             caps['build'] = self.version
+        if self.recordVideo:
+            caps['record_video'] = self.recordVideo
+        if self.recordNetwork:
+            caps['record_network'] = self.recordNetwork
         return caps

@@ -18,6 +18,7 @@ def main():
         .withResolution(1024, 768) \
         .withName('cbthelper test') \
         .withBuild('0.0.1') \
+        .withRecordNetwork(True) \
         .build()
 
     driver = webdriver.Remote(desired_capabilities = caps, command_executor = cbt.hub)
