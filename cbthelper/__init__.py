@@ -5,6 +5,7 @@ from .CapsBuilder import CapsBuilder
 from .TestHistoryBuilder import TestHistoryBuilder
 from .AutomatedTest import AutomatedTest
 from .Snapshot import Snapshot
+from .Video import Video
 
 SCORE_PASS = 'pass'
 SCORE_FAIL = 'fail'
@@ -24,3 +25,6 @@ def getTestHistoryBuilder():
 
 def getTestHistory(options):
     return requests.get(G.api, auth=(G.username, G.authkey), data=options).json()
+
+def getTestFromId(sessid):
+    return AutomatedTest(sessid)

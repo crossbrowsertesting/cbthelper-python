@@ -1,5 +1,6 @@
 from . import globals as G
 from .Snapshot import Snapshot
+from .Video import Video
 import requests, os
 
 class AutomatedTest:
@@ -43,6 +44,27 @@ class AutomatedTest:
             else:
                 img = prefix + str(i) + '.png'
             snaps[i].saveSnapshot(os.path.join(directory, img))
+    def startRecordingVideo(self, description=''):
+        hash = requests.post(G.api + self.testId + '/videos', auth=(G.username, G.authkey)).json()['hash']
+        snap = Video(hash, self)
+        if description != '':
+            video.setDescription(description)
+        return snap
+    def getVideos(self):
+        videos = requests.get(G.api+ self.testId + '/videos', auth=(G.username, G.authkey)).json()
+        ret = []
+        for video in videos:
+            ret.append(Video(video['hash'], self))
+        return ret
+    def saveAllVideos(self, directory, prefix='video', useDescription=False):
+        videos = self.getVideos()
+        self.__makeDirectory(directory)
+        for i in range(len(videos)):
+            if useDescription and videos[i].info['description'] != '':
+                vid = videos[i].info['description'] + '.mp4'
+            else:
+                vid = prefix + str(i) + '.mp4'
+            videos[i].saveVideo(os.path.join(directory, vid))
     def __makeDirectory(self, dir):
         if not os.path.exists(dir):
             os.mkdir(dir)

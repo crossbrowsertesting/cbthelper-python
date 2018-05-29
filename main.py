@@ -24,7 +24,8 @@ def main():
     driver.implicitly_wait(20)
 
     # initialize an AutomatedTest object with our selenium session id
-    myTest = cbt.AutomatedTest(driver.session_id)
+    myTest = cbt.getTestFromId(driver.session_id)
+    video = myTest.startRecordingVideo()
 
     driver.get('http://google.com')
     driver.implicitly_wait(2)
@@ -33,7 +34,7 @@ def main():
     # easily set snapshot description
     googleSnap.setDescription('google.com')
     # save the snapshot locally
-    googleSnap.saveSnapshot('google.png')
+    googleSnap.saveLocally('google.png')
 
     driver.get('http://crossbrowsertesting.com')
     driver.implicitly_wait(2)
@@ -45,6 +46,8 @@ def main():
     # alternatively can set a prefix (default 'image') and images will be indexed
     myTest.saveAllSnapshots('./images', useDescription=True)
 
+    video.stopRecording()
+
     # set score using enum (SCORE_PASS, _FAIL, or _UNSET)
     myTest.setScore(cbt.SCORE_PASS)
 
@@ -55,6 +58,8 @@ def main():
     # can also pass in score to set score and stop in one call
     # myTest.stop(cbt.SCORE_PASS)
     myTest.stop()
+
+    video.saveLocally('video.mp4')
 
     #driver.quit()
 

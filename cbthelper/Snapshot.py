@@ -12,7 +12,7 @@ class Snapshot:
     def setDescription(self, description):
         url = G.api + self.testId + '/snapshots/' + self.hash
         self.info = requests.put(url, auth=(G.username, G.authkey), data={'description':description})
-    def saveSnapshot(self, location):
+    def saveLocally(self, location):
         t = threading.Thread(target=Snapshot.__saveSnapshot, args=(self, location))
         t.start()
     def __saveSnapshot(self, location):
