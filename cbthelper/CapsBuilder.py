@@ -8,13 +8,8 @@ class CapsBuilder:
 
     All of the with... methods return self for method chaining
     """
-    capsData = None
     def __init__(self):
-        """
-        Constructor usually only called once (weak singleton)
-        """
-        if not CapsBuilder.capsData:
-            CapsBuilder.capsData = requests.get(G.api + 'browsers').json()
+        self.capsData = requests.get(G.api + 'browsers').json()
         self.platform = None
         self.browser = None
         self.width = None
@@ -99,7 +94,7 @@ class CapsBuilder:
         bestOption = None
         target = target.lower()
         target = target.replace('x64','64-bit')
-        for platform in CapsBuilder.capsData:
+        for platform in self.capsData:
             for browser in platform['browsers']:
                 name = browser['name'].lower()
                 apiName = browser['api_name'].lower()
@@ -112,7 +107,7 @@ class CapsBuilder:
                     bestOption = browser
         return bestOption
     def __choose(self):
-        data = CapsBuilder.capsData
+        data = self.capsData
         caps = {
             'username': G.username,
             'password': G.authkey

@@ -6,13 +6,10 @@ import requests, os
 class AutomatedTest:
     """
     Helpful representation of a selenium test
+
+    :param testId: the selenium session ID, usually from webdriver
     """
     def __init__(self, testId):
-        """
-        Create a new instance of an automated test
-
-        :param testId: the selenium session ID, usually gotten from webdriver
-        """
         self.testId = testId
     def setScore(self, score):
         """

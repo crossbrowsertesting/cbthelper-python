@@ -4,14 +4,11 @@ import requests, sys, time, os, threading
 class Snapshot:
     """
     Represents a snapshot for selenium tests
+
+    :param hash: the hash for this image, returned by rest api when taking a screenshot
+    :param test: an AutomatedTest object that represents a test currently running
     """
     def __init__(self, hash, test):
-        """
-        Constructor for Snapshot
-
-        :param hash: the hash for this image, returned by rest api when taking a screenshot
-        :param test: an AutomatedTest object that represents a test currently running
-        """
         self.hash = hash
         self.testId = test.testId
         self.getInfo()

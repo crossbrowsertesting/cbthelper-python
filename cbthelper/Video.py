@@ -4,14 +4,11 @@ import requests, sys, time, os, threading
 class Video:
     """
     Represents a video recording for a selenium test
+
+    :param hash: the hash for this video, returned by rest api when starting a recording
+    :param test: an AutomatedTest object that represents a test currently running
     """
     def __init__(self, hash, test):
-        """
-        Constructor for the video object
-
-        :param hash: the hash for this video, returned by rest api when starting a recording
-        :param test: an AutomatedTest object that represents a test currently running
-        """
         self.hash = hash
         self.testId = test.testId
         self.getInfo()

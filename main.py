@@ -4,8 +4,8 @@ import sys
 
 def main():
     # set username and auth key for api requests
-    username = ''
-    authkey = ''
+    username = 'timh@crossbrowsertesting.com'
+    authkey = 'u6a45ff948b08869'
     if username == '' or authkey == '':
         print("Don't forget to set username and authkey in main.py")
         sys.exit(1)
@@ -73,7 +73,7 @@ def main():
     print(options)
     # grab our history using the options we created above
     history = cbt.getTestHistory(options)
-    print(len(history['selenium']))
+    print(history['selenium'])
 
 if __name__ == '__main__':
     main()
