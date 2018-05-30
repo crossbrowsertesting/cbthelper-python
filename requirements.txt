@@ -1,0 +1,3 @@
+fuzzywuzzy==0.16.0
+selenium==3.11.0
+sphinx-rtd-theme==0.3.1
