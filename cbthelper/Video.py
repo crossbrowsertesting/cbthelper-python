@@ -57,6 +57,9 @@ class Video:
             r = requests.get(url, stream=True)
             iteration += 1
         if iteration < timeout:
+            path = os.path.split(location)[0]
+            if not os.path.exists(path):
+                os.mkdir(path)
             with open(location, 'wb') as f:
                 for chunk in r.iter_content(chunk_size=128):
                     f.write(chunk)

@@ -1,11 +1,11 @@
 import cbthelper as cbt
 from selenium import webdriver
-import sys
+import sys, os
 
 def main():
     # set username and auth key for api requests
-    username = ''
-    authkey = ''
+    username = os.environ['CBT_USERNAME'] or ''
+    authkey = os.environ['CBT_AUTHKEY'] or ''
     if username == '' or authkey == '':
         print("Don't forget to set username and authkey in main.py")
         sys.exit(1)
@@ -35,7 +35,7 @@ def main():
     # easily set snapshot description
     googleSnap.setDescription('google.com')
     # save the snapshot locally
-    googleSnap.saveLocally('google.png')
+    googleSnap.saveLocally('test/google.png')
 
     driver.get('http://crossbrowsertesting.com')
     driver.implicitly_wait(2)
@@ -45,7 +45,7 @@ def main():
     # downloads every snapshot for a given test and saves them in a directory
     # can set useDescription to name the images what we set as the description
     # alternatively can set a prefix (default 'image') and images will be indexed
-    myTest.saveAllSnapshots('./images', useDescription=True)
+    myTest.saveAllSnapshots('test/images', useDescription=True)
 
     video.stopRecording()
 
@@ -60,7 +60,7 @@ def main():
     # myTest.stop(cbt.SCORE_PASS)
     myTest.stop()
 
-    video.saveLocally('video.mp4')
+    video.saveLocally('test/video.mp4')
 
     #driver.quit()
 
