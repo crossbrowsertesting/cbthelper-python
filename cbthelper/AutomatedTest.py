@@ -4,15 +4,31 @@ from .Video import Video
 import requests, os
 
 class AutomatedTest:
+    """
+    Helpful representation of a selenium test
+    """
     def __init__(self, testId):
+        """
+        Create a new instance of an automated test
+
+        :param testId: the selenium session ID, usually gotten from webdriver
+        """
         self.testId = testId
     def setScore(self, score):
+        """
+        Sets the score for our test in the CBT app
+
+        :param score: should be 'pass', 'fail', or 'unset'. The main module exposes SCORE_PASS, SCORE_FAIL, SCORE_UNSET
+        """
         options = {
             'action': 'set_score',
             'score': score
         }
         requests.put(G.api + self.testId, auth=(G.username, G.authkey), data=options)
     def setDescription(self, description):
+        """
+        Sets the description for our test in the CBT app
+        """
         options = {
             'action': 'set_description',
             'description': description
@@ -20,22 +36,45 @@ class AutomatedTest:
         requests.put(G.api + self.testId, auth=(G.username, G.authkey), data=options)
     def stop(self, score=''):
         # score is optional, will combine setScore and stopTest
+        """
+        Sends the command to our api to stop the selenium test. Similar to driver.quit()
+
+        :param score: (optional) shortcut for AutomatedTest.setScore
+        """
         if score != '':
             self.setScore(score)
         requests.delete(G.api + self.testId, auth=(G.username, G.authkey))
     def takeSnapshot(self, description=''):
+        """
+        Sends the command to take a snapshot and returns a Snapshot instance
+
+        :param description: (optional) shortcut for Snapshot.setDescription
+        :returns the Snapshot instance for this snapshot
+        """
         hash = requests.post(G.api + self.testId + '/snapshots', auth=(G.username, G.authkey)).json()['hash']
         snap = Snapshot(hash, self)
         if description != '':
             snap.setDescription(description)
         return snap
     def getSnapshots(self):
+        """
+        Gets all snapshots for this test
+
+        :returns a list of Snapshot objects for this test
+        """
         snaps = requests.get(G.api+ self.testId + '/snapshots', auth=(G.username, G.authkey)).json()
         ret = []
         for snap in snaps:
             ret.append(Snapshot(snap['hash'], self))
         return ret
     def saveAllSnapshots(self, directory, prefix='image', useDescription=False):
+        """
+        Downloads all snapshots for this test into a directory
+
+        :param directory: the directory where the snapshots will be saved
+        :param prefix: (optional) defines the prefix used for the filenames
+        :param useDescription: (optional) if true, will use the snapshot description instead of the prefix
+        """
         snaps = self.getSnapshots()
         self.__makeDirectory(directory)
         for i in range(len(snaps)):
@@ -45,18 +84,36 @@ class AutomatedTest:
                 img = prefix + str(i) + '.png'
             snaps[i].saveLocally(os.path.join(directory, img))
     def startRecordingVideo(self, description=''):
+        """
+        Starts recording video for this test
+
+        :param description: shortcut for Video.setDescription
+        :returns the Video instance we started recording
+        """
         hash = requests.post(G.api + self.testId + '/videos', auth=(G.username, G.authkey)).json()['hash']
         snap = Video(hash, self)
         if description != '':
             video.setDescription(description)
         return snap
     def getVideos(self):
+        """
+        Gets all video recordings for this test
+
+        :returns a list of Video objects for this test
+        """
         videos = requests.get(G.api+ self.testId + '/videos', auth=(G.username, G.authkey)).json()
         ret = []
         for video in videos:
             ret.append(Video(video['hash'], self))
         return ret
     def saveAllVideos(self, directory, prefix='video', useDescription=False):
+        """
+        Downloads all videos for this test into a directory
+
+        :param directory: the directory where the videos will be saved
+        :param prefix: (optional) defines the prefix used for the filenames
+        :param useDescription: (optional) if true, will use the video description instead of the prefix
+        """
         videos = self.getVideos()
         self.__makeDirectory(directory)
         for i in range(len(videos)):

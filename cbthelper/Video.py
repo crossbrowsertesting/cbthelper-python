@@ -2,19 +2,44 @@ from . import globals as G
 import requests, sys, time, os, threading
 
 class Video:
+    """
+    Represents a video recording for a selenium test
+    """
     def __init__(self, hash, test):
+        """
+        Constructor for the video object
+
+        :param hash: the hash for this video, returned by rest api when starting a recording
+        :param test: an AutomatedTest object that represents a test currently running
+        """
         self.hash = hash
         self.testId = test.testId
         self.getInfo()
     def getInfo(self):
+        """
+        Calls out to api to get updated info for this video
+
+        :rvalue returns a python dict object with all of the info for this video
+        """
         self.info = requests.get(G.api + self.testId + '/videos/' + self.hash, auth=(G.username, G.authkey)).json()
         return self.info
     def stopRecording(self):
+        """
+        Sends the command to stop a video recording
+        """
         requests.delete(G.api + self.testId + '/videos/' + self.hash, auth=(G.username, G.authkey))
     def setDescription(self, description):
+        """
+        Sets the description for this video
+        """
         url = G.api + self.testId + '/videos/' + self.hash
         self.info = requests.put(url, auth=(G.username, G.authkey), data={'description':description})
     def saveLocally(self, location):
+        """
+        Async method to download this video to the location given. Recording will be stopped if active.
+
+        :param location: a string with the location and filename for the video. Should have a .mp4 extension
+        """
         t = threading.Thread(target=Video.__saveLocally, args=(self, location))
         t.start()
     def __saveLocally(self, location):

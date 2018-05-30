@@ -3,8 +3,16 @@ from . import globals as G
 import requests
 
 class CapsBuilder:
+    """
+    Builder for generating selenium capabilities
+
+    All of the with... methods return self for method chaining
+    """
     capsData = None
     def __init__(self):
+        """
+        Constructor usually only called once (weak singleton)
+        """
         if not CapsBuilder.capsData:
             CapsBuilder.capsData = requests.get(G.api + 'browsers').json()
         self.platform = None
@@ -16,29 +24,59 @@ class CapsBuilder:
         self.recordVideo = None
         self.recordNetwork = None
     def withPlatform(self, platform):
+        """
+        Sets the platform (OS) the user wants to use. Uses fuzzy string comparison to find best match
+
+        :param platform: a string specifying the platform (eg. Windows 7, Mac 10.13)
+        """
         self.platform = platform
         return self
     def withBrowser(self, browser):
+        """
+        Sets the browser the user wants to use. Uses fuzzy string comparison to find best match
+
+        :param browser: as string specifying the browser (eg. Edge 17, Chrome 55x64)
+        """
         self.browser = browser
         return self
     def withResolution(self, width, height):
+        """
+        Sets the screen size for the test
+        """
         self.width = width
         self.height = height
         return self
     def withName(self, name):
+        """
+        Sets the name that will appear in the web app
+        """
         self.name = name
         return self
     def withBuild(self, build):
+        """
+        Sets the build name in the web app
+        """
         # cant be build because of method below
         self.version = build
         return self
     def withRecordVideo(self, bool):
+        """
+        Records a video for the length of the test
+        """
         self.recordVideo = bool
         return self
     def withRecordNetwork(self, bool):
+        """
+        Records network traffice for the length of the test
+        """
         self.recordNetwork = bool
         return self
     def build(self):
+        """
+        Used to generate the capabilites using any options the user specifies
+
+        :rvalue returns a python dict object that can be passed to the selenium webdriver
+        """
         return self.__choose()
     def __bestOption(self, options, target):
         bestRatio = 0
