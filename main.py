@@ -4,8 +4,8 @@ import sys
 
 def main():
     # set username and auth key for api requests
-    username = 'timh@crossbrowsertesting.com'
-    authkey = 'u6a45ff948b08869'
+    username = ''
+    authkey = ''
     if username == '' or authkey == '':
         print("Don't forget to set username and authkey in main.py")
         sys.exit(1)
