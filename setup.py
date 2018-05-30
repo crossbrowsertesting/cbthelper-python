@@ -5,12 +5,13 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='cbthelper',
-    version='0.1.0',
+    version='0.1.2',
     author='Tim Hamilton',
     author_email='timh@crossbrowsertesting.com',
     description='a helper library for cross browser testing\'s selenium api',
     long_description=long_description,
-    url='https://github.com/TimmyTango/hackathon2018',
+    long_description_content_type='text/markdown',
+    url='https://github.com/crossbrowsertesting/cbthelper-python',
     packages=setuptools.find_packages(),
     install_requires=[
         'fuzzywuzzy',
