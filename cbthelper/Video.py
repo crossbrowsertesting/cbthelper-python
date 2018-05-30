@@ -19,7 +19,7 @@ class Video:
         """
         Calls out to api to get updated info for this video
 
-        :rvalue returns a python dict object with all of the info for this video
+        :returns: a python dict object with all of the info for this video
         """
         self.info = requests.get(G.api + self.testId + '/videos/' + self.hash, auth=(G.username, G.authkey)).json()
         return self.info

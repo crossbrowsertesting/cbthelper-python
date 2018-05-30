@@ -96,6 +96,6 @@ class TestHistoryBuilder:
         """
         Generates the test history options
 
-        :rvalue returns a python dict to pass to cbthelper.getTestHistory()
+        :returns: a python dict to pass to cbthelper.getTestHistory()
         """
         return self.options

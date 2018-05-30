@@ -75,7 +75,7 @@ class CapsBuilder:
         """
         Used to generate the capabilites using any options the user specifies
 
-        :rvalue returns a python dict object that can be passed to the selenium webdriver
+        :returns: a python dict object that can be passed to the selenium webdriver
         """
         return self.__choose()
     def __bestOption(self, options, target):

@@ -49,7 +49,7 @@ class AutomatedTest:
         Sends the command to take a snapshot and returns a Snapshot instance
 
         :param description: (optional) shortcut for Snapshot.setDescription
-        :returns the Snapshot instance for this snapshot
+        :returns: the Snapshot instance for this snapshot
         """
         hash = requests.post(G.api + self.testId + '/snapshots', auth=(G.username, G.authkey)).json()['hash']
         snap = Snapshot(hash, self)
@@ -60,7 +60,7 @@ class AutomatedTest:
         """
         Gets all snapshots for this test
 
-        :returns a list of Snapshot objects for this test
+        :returns: a list of Snapshot objects for this test
         """
         snaps = requests.get(G.api+ self.testId + '/snapshots', auth=(G.username, G.authkey)).json()
         ret = []
@@ -88,7 +88,7 @@ class AutomatedTest:
         Starts recording video for this test
 
         :param description: shortcut for Video.setDescription
-        :returns the Video instance we started recording
+        :returns: the Video instance we started recording
         """
         hash = requests.post(G.api + self.testId + '/videos', auth=(G.username, G.authkey)).json()['hash']
         snap = Video(hash, self)
@@ -99,7 +99,7 @@ class AutomatedTest:
         """
         Gets all video recordings for this test
 
-        :returns a list of Video objects for this test
+        :returns: a list of Video objects for this test
         """
         videos = requests.get(G.api+ self.testId + '/videos', auth=(G.username, G.authkey)).json()
         ret = []

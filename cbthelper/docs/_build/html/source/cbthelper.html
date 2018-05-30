@@ -1,0 +1,633 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cbthelper package &#8212; cbthelper 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cbthelper-package">
+<h1>cbthelper package<a class="headerlink" href="#cbthelper-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cbthelper.AutomatedTest">
+<span id="cbthelper-automatedtest-module"></span><h2>cbthelper.AutomatedTest module<a class="headerlink" href="#module-cbthelper.AutomatedTest" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cbthelper.AutomatedTest.AutomatedTest">
+<em class="property">class </em><code class="descclassname">cbthelper.AutomatedTest.</code><code class="descname">AutomatedTest</code><span class="sig-paren">(</span><em>testId</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helpful representation of a selenium test</p>
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.getSnapshots">
+<code class="descname">getSnapshots</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.getSnapshots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all snapshots for this test</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of Snapshot objects for this test</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.getVideos">
+<code class="descname">getVideos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.getVideos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all video recordings for this test</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of Video objects for this test</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.saveAllSnapshots">
+<code class="descname">saveAllSnapshots</code><span class="sig-paren">(</span><em>directory</em>, <em>prefix='image'</em>, <em>useDescription=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.saveAllSnapshots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads all snapshots for this test into a directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>directory</strong> – the directory where the snapshots will be saved</li>
+<li><strong>prefix</strong> – (optional) defines the prefix used for the filenames</li>
+<li><strong>useDescription</strong> – (optional) if true, will use the snapshot description instead of the prefix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.saveAllVideos">
+<code class="descname">saveAllVideos</code><span class="sig-paren">(</span><em>directory</em>, <em>prefix='video'</em>, <em>useDescription=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.saveAllVideos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads all videos for this test into a directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>directory</strong> – the directory where the videos will be saved</li>
+<li><strong>prefix</strong> – (optional) defines the prefix used for the filenames</li>
+<li><strong>useDescription</strong> – (optional) if true, will use the video description instead of the prefix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.setDescription">
+<code class="descname">setDescription</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.setDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the description for our test in the CBT app</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.setScore">
+<code class="descname">setScore</code><span class="sig-paren">(</span><em>score</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.setScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the score for our test in the CBT app</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>score</strong> – should be ‘pass’, ‘fail’, or ‘unset’. The main module exposes SCORE_PASS, SCORE_FAIL, SCORE_UNSET</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.startRecordingVideo">
+<code class="descname">startRecordingVideo</code><span class="sig-paren">(</span><em>description=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.startRecordingVideo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts recording video for this test</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>description</strong> – shortcut for Video.setDescription</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the Video instance we started recording</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><em>score=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the command to our api to stop the selenium test. Similar to driver.quit()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>score</strong> – (optional) shortcut for AutomatedTest.setScore</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.AutomatedTest.AutomatedTest.takeSnapshot">
+<code class="descname">takeSnapshot</code><span class="sig-paren">(</span><em>description=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.AutomatedTest.AutomatedTest.takeSnapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the command to take a snapshot and returns a Snapshot instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>description</strong> – (optional) shortcut for Snapshot.setDescription</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the Snapshot instance for this snapshot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cbthelper.CapsBuilder">
+<span id="cbthelper-capsbuilder-module"></span><h2>cbthelper.CapsBuilder module<a class="headerlink" href="#module-cbthelper.CapsBuilder" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cbthelper.CapsBuilder.CapsBuilder">
+<em class="property">class </em><code class="descclassname">cbthelper.CapsBuilder.</code><code class="descname">CapsBuilder</code><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Builder for generating selenium capabilities</p>
+<p>All of the with… methods return self for method chaining</p>
+<dl class="method">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.build">
+<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to generate the capabilites using any options the user specifies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a python dict object that can be passed to the selenium webdriver</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.capsData">
+<code class="descname">capsData</code><em class="property"> = None</em><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.capsData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.withBrowser">
+<code class="descname">withBrowser</code><span class="sig-paren">(</span><em>browser</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.withBrowser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the browser the user wants to use. Uses fuzzy string comparison to find best match</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>browser</strong> – as string specifying the browser (eg. Edge 17, Chrome 55x64)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.withBuild">
+<code class="descname">withBuild</code><span class="sig-paren">(</span><em>build</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.withBuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the build name in the web app</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.withName">
+<code class="descname">withName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.withName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the name that will appear in the web app</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.withPlatform">
+<code class="descname">withPlatform</code><span class="sig-paren">(</span><em>platform</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.withPlatform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the platform (OS) the user wants to use. Uses fuzzy string comparison to find best match</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>platform</strong> – a string specifying the platform (eg. Windows 7, Mac 10.13)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.withRecordNetwork">
+<code class="descname">withRecordNetwork</code><span class="sig-paren">(</span><em>bool</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.withRecordNetwork" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records network traffice for the length of the test</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.withRecordVideo">
+<code class="descname">withRecordVideo</code><span class="sig-paren">(</span><em>bool</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.withRecordVideo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records a video for the length of the test</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.CapsBuilder.CapsBuilder.withResolution">
+<code class="descname">withResolution</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.CapsBuilder.CapsBuilder.withResolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the screen size for the test</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cbthelper.Snapshot">
+<span id="cbthelper-snapshot-module"></span><h2>cbthelper.Snapshot module<a class="headerlink" href="#module-cbthelper.Snapshot" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cbthelper.Snapshot.Snapshot">
+<em class="property">class </em><code class="descclassname">cbthelper.Snapshot.</code><code class="descname">Snapshot</code><span class="sig-paren">(</span><em>hash</em>, <em>test</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Snapshot.Snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a snapshot for selenium tests</p>
+<dl class="method">
+<dt id="cbthelper.Snapshot.Snapshot.getInfo">
+<code class="descname">getInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Snapshot.Snapshot.getInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls out to api to get updated info for this snapshot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a python dict object with all of the info for this Snapshot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.Snapshot.Snapshot.saveLocally">
+<code class="descname">saveLocally</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Snapshot.Snapshot.saveLocally" title="Permalink to this definition">¶</a></dt>
+<dd><p>Async method to download this snapshot to the location given</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> – a string with the location and filename for the image. Should have a .png extension</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.Snapshot.Snapshot.setDescription">
+<code class="descname">setDescription</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Snapshot.Snapshot.setDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the description for this snapshot</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cbthelper.TestHistoryBuilder">
+<span id="cbthelper-testhistorybuilder-module"></span><h2>cbthelper.TestHistoryBuilder module<a class="headerlink" href="#module-cbthelper.TestHistoryBuilder" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder">
+<em class="property">class </em><code class="descclassname">cbthelper.TestHistoryBuilder.</code><code class="descname">TestHistoryBuilder</code><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Builder to generate options for getting test history</p>
+<p>All of the with… methods return self for method chaining</p>
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.build">
+<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the test history options</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a python dict to pass to cbthelper.getTestHistory()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withActive">
+<code class="descname">withActive</code><span class="sig-paren">(</span><em>active</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withActive" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, will only return active or inactive tests</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>active</strong> – boolean value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withBrowser">
+<code class="descname">withBrowser</code><span class="sig-paren">(</span><em>browser</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withBrowser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests that used the same browser</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>browser</strong> – a string with the browser name and version: (eg. Chrome 65)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withBrowserType">
+<code class="descname">withBrowserType</code><span class="sig-paren">(</span><em>browserType</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withBrowserType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests that used the same browser type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>browserType</strong> – a string representing the browser family (eg. ‘Chrome’, ‘Edge’, ‘Safari’)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withBuild">
+<code class="descname">withBuild</code><span class="sig-paren">(</span><em>build</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withBuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests that match the build given</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withEndDate">
+<code class="descname">withEndDate</code><span class="sig-paren">(</span><em>endDate</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withEndDate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withLimit">
+<code class="descname">withLimit</code><span class="sig-paren">(</span><em>limit</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the max number of tests to return</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withName">
+<code class="descname">withName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests that match the name given</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withPlatform">
+<code class="descname">withPlatform</code><span class="sig-paren">(</span><em>platform</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withPlatform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests with the same platform (OS)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>platform</strong> – string with the platform (eg. ‘Windows 10’, ‘Mac OS 10.13’)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withPlatformType">
+<code class="descname">withPlatformType</code><span class="sig-paren">(</span><em>platformType</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withPlatformType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests with the same platformType (OS Family)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>platformType</strong> – string with the platform type (eg. ‘Windows’, ‘Mac’, ‘Android’)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withResolution">
+<code class="descname">withResolution</code><span class="sig-paren">(</span><em>resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withResolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests that used the same resolution</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resolution</strong> – a string with the form ‘WIDTHxHEIGHT’ (eg. ‘1024x768’)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withScore">
+<code class="descname">withScore</code><span class="sig-paren">(</span><em>score</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests with the score specified (‘pass’, ‘fail’, ‘unset’)</p>
+<p>The library contains helpful enums cbthelper.(SCORE_PASS, SCORE_FAIL, SCORE_UNSET)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withStartDate">
+<code class="descname">withStartDate</code><span class="sig-paren">(</span><em>startDate</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withStartDate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.TestHistoryBuilder.TestHistoryBuilder.withUrl">
+<code class="descname">withUrl</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.TestHistoryBuilder.TestHistoryBuilder.withUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will only return tests that navigate to the same url</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cbthelper.Video">
+<span id="cbthelper-video-module"></span><h2>cbthelper.Video module<a class="headerlink" href="#module-cbthelper.Video" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cbthelper.Video.Video">
+<em class="property">class </em><code class="descclassname">cbthelper.Video.</code><code class="descname">Video</code><span class="sig-paren">(</span><em>hash</em>, <em>test</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Video.Video" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a video recording for a selenium test</p>
+<dl class="method">
+<dt id="cbthelper.Video.Video.getInfo">
+<code class="descname">getInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Video.Video.getInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls out to api to get updated info for this video</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a python dict object with all of the info for this video</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.Video.Video.saveLocally">
+<code class="descname">saveLocally</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Video.Video.saveLocally" title="Permalink to this definition">¶</a></dt>
+<dd><p>Async method to download this video to the location given. Recording will be stopped if active.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> – a string with the location and filename for the video. Should have a .mp4 extension</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.Video.Video.setDescription">
+<code class="descname">setDescription</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Video.Video.setDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the description for this video</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cbthelper.Video.Video.stopRecording">
+<code class="descname">stopRecording</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.Video.Video.stopRecording" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the command to stop a video recording</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cbthelper.globals">
+<span id="cbthelper-globals-module"></span><h2>cbthelper.globals module<a class="headerlink" href="#module-cbthelper.globals" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cbthelper">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cbthelper" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cbthelper.getCapsBuilder">
+<code class="descclassname">cbthelper.</code><code class="descname">getCapsBuilder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.getCapsBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to get the selenium capability builder</p>
+<p>Generating the CapsBuilder pulls in a large amount of data, so user should not call the constrcutor manually</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cbthelper.getTestFromId">
+<code class="descclassname">cbthelper.</code><code class="descname">getTestFromId</code><span class="sig-paren">(</span><em>sessid</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.getTestFromId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an automated test from the selenium session id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sessid</strong> – string for the seleneium session/test id. Should come from WebDriver</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cbthelper.getTestHistory">
+<code class="descclassname">cbthelper.</code><code class="descname">getTestHistory</code><span class="sig-paren">(</span><em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.getTestHistory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a python dictionary with the test history, filtering based on the options given.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>options</strong> – a python dictionary created by the TestHistoryBuilder</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cbthelper.getTestHistoryBuilder">
+<code class="descclassname">cbthelper.</code><code class="descname">getTestHistoryBuilder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.getTestHistoryBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to get the TestHistoryBuilder</p>
+<p>Can also just call the constructor. Method created to match getCapsBuilder()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cbthelper.login">
+<code class="descclassname">cbthelper.</code><code class="descname">login</code><span class="sig-paren">(</span><em>username</em>, <em>authkey</em><span class="sig-paren">)</span><a class="headerlink" href="#cbthelper.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the username and authkey used to make the HTTP requests</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cbthelper package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-cbthelper.AutomatedTest">cbthelper.AutomatedTest module</a></li>
+<li><a class="reference internal" href="#module-cbthelper.CapsBuilder">cbthelper.CapsBuilder module</a></li>
+<li><a class="reference internal" href="#module-cbthelper.Snapshot">cbthelper.Snapshot module</a></li>
+<li><a class="reference internal" href="#module-cbthelper.TestHistoryBuilder">cbthelper.TestHistoryBuilder module</a></li>
+<li><a class="reference internal" href="#module-cbthelper.Video">cbthelper.Video module</a></li>
+<li><a class="reference internal" href="#module-cbthelper.globals">cbthelper.globals module</a></li>
+<li><a class="reference internal" href="#module-cbthelper">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/cbthelper.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Tim Hamilton, David Califf, Nate Stokes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/source/cbthelper.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

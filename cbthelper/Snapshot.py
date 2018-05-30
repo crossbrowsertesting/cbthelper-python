@@ -19,7 +19,7 @@ class Snapshot:
         """
         Calls out to api to get updated info for this snapshot
 
-        :rvalue returns a python dict object with all of the info for this Snapshot
+        :returns: a python dict object with all of the info for this Snapshot
         """
         self.info = requests.get(G.api + self.testId + '/snapshots/' + self.hash, auth=(G.username, G.authkey)).json()
         return self.info
