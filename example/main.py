@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import cbthelper as cbt
 from selenium import webdriver
 import sys, os
