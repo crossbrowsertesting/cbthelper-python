@@ -15,12 +15,13 @@ def main():
     # does not require exact platform or browser name
     caps = cbt.getCapsBuilder() \
         .withPlatform('windows 10') \
-        .withBrowser('Chrome 65') \
+        .withBrowser('Google Chrome 65') \
         .withResolution(1024, 768) \
         .withName('cbthelper test') \
         .withBuild('0.0.1') \
         .withRecordNetwork(True) \
         .build()
+    print(caps)
 
     driver = webdriver.Remote(desired_capabilities = caps, command_executor = cbt.hub)
     driver.implicitly_wait(20)

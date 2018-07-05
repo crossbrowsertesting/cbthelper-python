@@ -1,4 +1,3 @@
-from fuzzywuzzy import fuzz
 from . import globals as G
 import requests
 
@@ -74,38 +73,22 @@ class CapsBuilder:
         """
         return self.__choose()
     def __bestOption(self, options, target):
-        bestRatio = 0
-        bestOption = None
         target = target.lower()
-        target = target.replace('x64', '64-bit')
         for option in options:
             name = option['name'].lower()
             apiName = option['api_name'].lower()
-            ratio = fuzz.partial_ratio(name, target)
-            ratio += fuzz.partial_ratio(apiName, target)
-            ratio += fuzz.ratio(name, target)
-            ratio += fuzz.ratio(apiName, target)
-            if ratio > bestRatio:
-                bestRatio = ratio
-                bestOption = option
-        return bestOption
+            if target == name or target == apiName:
+                return option
+        return None
     def __bestBrowserNoPlatform(self, target):
-        bestRatio = 0
-        bestOption = None
         target = target.lower()
-        target = target.replace('x64','64-bit')
         for platform in self.capsData:
             for browser in platform['browsers']:
                 name = browser['name'].lower()
                 apiName = browser['api_name'].lower()
-                ratio = fuzz.partial_ratio(name, target)
-                ratio += fuzz.partial_ratio(apiName, target)
-                ratio += fuzz.ratio(name, target)
-                ratio += fuzz.ratio(apiName, target)
-                if ratio > bestRatio:
-                    bestRatio = ratio
-                    bestOption = browser
-        return bestOption
+                if target == name or target == apiName:
+                    return browser
+        return None
     def __choose(self):
         data = self.capsData
         caps = {
@@ -116,13 +99,15 @@ class CapsBuilder:
         browser = None
         if self.platform:
             platform = self.__bestOption(data, self.platform)
-            caps.update(platform['caps'])
+            if platform != None:
+                caps.update(platform['caps'])
         if self.browser:
             if platform:
                 browser = self.__bestOption(platform['browsers'], self.browser)
             else:
                 browser = self.__bestBrowserNoPlatform(self.browser)
-            caps.update(browser['caps'])
+            if browser != None:
+                caps.update(browser['caps'])
         if self.width and self.height:
             caps['screenResolution'] = str(self.width) + 'x' + str(self.height)
         if self.name:

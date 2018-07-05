@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='cbthelper',
-    version='0.1.2',
+    version='0.1.3',
     author='Tim Hamilton',
     author_email='timh@crossbrowsertesting.com',
     description='a helper library for cross browser testing\'s selenium api',
@@ -13,9 +13,6 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     url='https://github.com/crossbrowsertesting/cbthelper-python',
     packages=setuptools.find_packages(),
-    install_requires=[
-        'fuzzywuzzy',
-    ],
     classifiers=(
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
