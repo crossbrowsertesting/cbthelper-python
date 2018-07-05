@@ -19,7 +19,7 @@ class CapsBuilder:
         self.recordNetwork = None
     def withPlatform(self, platform):
         """
-        Sets the platform (OS) the user wants to use. Uses fuzzy string comparison to find best match
+        Sets the platform (OS) the user wants to use. The string will be compared against the 'name' and 'api_name' properties returned from the selenium api.
 
         :param platform: a string specifying the platform (eg. Windows 7, Mac 10.13)
         """
@@ -27,7 +27,7 @@ class CapsBuilder:
         return self
     def withBrowser(self, browser):
         """
-        Sets the browser the user wants to use. Uses fuzzy string comparison to find best match
+        Sets the browser the user wants to use. The string will be compared against the 'name' and 'api_name' properties returned from the selenium api.
 
         :param browser: as string specifying the browser (eg. Edge 17, Chrome 55x64)
         """
