@@ -88,10 +88,10 @@ class AutomatedTest:
         :returns: the Video instance we started recording
         """
         hash = requests.post(G.api + self.testId + '/videos', auth=(G.username, G.authkey)).json()['hash']
-        snap = Video(hash, self)
+        video = Video(hash, self)
         if description != '':
             video.setDescription(description)
-        return snap
+        return video
     def getVideos(self):
         """
         Gets all video recordings for this test
