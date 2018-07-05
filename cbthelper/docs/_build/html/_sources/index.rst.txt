@@ -16,7 +16,7 @@ cbthelper
 AutomatedTest 
 ------------------------------
 
-.. automodule:: AutomatedTest
+.. automodule:: cbthelper.AutomatedTest
     :members:
     :undoc-members:
     :show-inheritance:
@@ -24,7 +24,7 @@ AutomatedTest
 CapsBuilder
 ----------------------------
 
-.. automodule:: CapsBuilder
+.. automodule:: cbthelper.CapsBuilder
     :members:
     :undoc-members:
     :show-inheritance:
@@ -32,7 +32,7 @@ CapsBuilder
 Snapshot
 -------------------------
 
-.. automodule:: Snapshot
+.. automodule:: cbthelper.Snapshot
     :members:
     :undoc-members:
     :show-inheritance:
@@ -40,7 +40,7 @@ Snapshot
 TestHistoryBuilder
 -----------------------------------
 
-.. automodule:: TestHistoryBuilder
+.. automodule:: cbthelper.TestHistoryBuilder
     :members:
     :undoc-members:
     :show-inheritance:
@@ -48,7 +48,7 @@ TestHistoryBuilder
 Video
 ----------------------
 
-.. automodule:: Video
+.. automodule:: cbthelper.Video
     :members:
     :undoc-members:
     :show-inheritance:
