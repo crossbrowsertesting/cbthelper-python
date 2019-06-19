@@ -19,7 +19,7 @@ def main():
         .withResolution(1024, 768) \
         .withName('cbthelper test') \
         .withBuild('0.0.1') \
-        .withRecordNetwork(True) \
+        .withRecordNetwork(false) \
         .build()
     print(caps)
 
